@@ -60,13 +60,13 @@ header .menu a {
 
 
 footer {
-	height: 150px;
+	height: 160px;
 	padding-top: 30px;
 	background-color: #424242;
 }
 
 footer .block {
-	width: 200px;
+	width: 220px;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -92,7 +92,7 @@ footer .block .content ul {
 	list-style-type: none;
 }
 footer .block .content li {
-	margin: 5px 0px;
+	margin: 8px 0px;
 }
 
 footer .block .content li.location {
@@ -101,7 +101,51 @@ footer .block .content li.location {
 	background-repeat: no-repeat;
 	background-position: center left;
 }
-
+footer .block .content .social {
+	width: 70px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+footer .block .content .twitter {
+	background-image: url(../images/Twitter.png);
+}
+footer .block .content .twitter:hover {
+	background-image: url(../images/Twitter_Color.png);
+}
+footer .block .content .pinterest {
+	background-image: url(../images/Pinterest.png);
+}
+footer .block .content .pinterest:hover {
+	background-image: url(../images/Pinterest_Color.png);
+}
+footer .block .content .youtube {
+	background-image: url(../images/YouTube.png);
+}
+footer .block .content .youtube:hover {
+	background-image: url(../images/YouTube_Color.png);
+}
+footer .block .content .facebook {
+	background-image: url(../images/Facebook.png);
+}
+footer .block .content .facebook:hover {
+	background-image: url(../images/Facebook_Color.png);
+}
+footer .block .content .google {
+	background-image: url("../images/Google +.png");
+}
+footer .block .content .google:hover {
+	background-image: url("../images/Google +_Color.png");
+}
+footer .block .content .instagram {
+	background-image: url(../images/Instagram.png);
+}
+footer .block .content .instagram:hover {
+	background-image: url(../images/Instagram_Color.png);
+}
 
 /*  justify header and footer  */
 header,
@@ -123,13 +167,14 @@ footer:after{
     width: 100%;
 }
 
+/* glue footer to bottom of page*/
 #wrapperTopPage {
 	min-height: 100%;
 }
 #footerBlank {
-	min-height: 180px;
+	min-height: 190px;
 }
 footer {
-	margin-top: -180px;
+	margin-top: -190px;
 }
 
