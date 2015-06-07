@@ -1,0 +1,22 @@
+.newsThumb {
+	width: 225px;
+	height: 280px;
+	margin: 20px;
+	word-wrap: break-word;
+	display: inline-block;
+	vertical-align: top;
+}
+.newsThumb .thumb {
+	text-align: center;
+	width: 225px;
+	height: 225px;
+}
+.newsThumb .title {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+.newsThumb img {
+	max-width: 225px;
+	max-height: 225px;
+}

@@ -10,11 +10,11 @@
 		<script type="text/javascript">
 			var dojoConfig = {
 				isDebug: true,
-				//baseUrl: '/',
+				baseUrl: '/',
 				packages: [
-					{ name: 'dojo', location: '/public/js/dojo-src/dojo' },
-					{ name: 'dijit', location: '/public/js/dojo-src/dijit' },
-					{ name: 'engine', location: '/public/js/engine-src' }
+					{ name: 'dojo', location: 'public/js/dojo-src/dojo' },
+					{ name: 'dijit', location: 'public/js/dojo-src/dijit' },
+					{ name: 'engine', location: 'public/js/engine-src' }
 				],
 
 				/* custom configs */
@@ -22,6 +22,8 @@
 			};
 		</script>
 		<script type="text/javascript" src="public/js/dojo-src/dojo/dojo.js"></script>
+		
+		<script type="text/javascript" src="public/js/engine-src/engine.js"></script>
 	</head>
 	<body>
 		<div id="wrapperTopPage">
@@ -30,8 +32,8 @@
 					<a href="javascript:void(0)">IT News Hub</a>
 				</div>
 				<div class="block form">
-					<form>
-						<input placeholder="Search" type="text" name="title" />
+					<form id="formSearchNews">
+						<input id="inputSearchTitle" placeholder="Search" type="text" name="title" />
 						<input type="submit" value="&nbsp;">
 					</form>
 				</div>
@@ -101,7 +103,8 @@
 					</ul>
 				</div>
 			</div>
-		
+			
+			<div id="containerJsonp" style="display:none;"></div>
 		</footer>
 	</body>
 </html>
