@@ -1,0 +1,35 @@
+{
+  "name": "nytimes",
+  "version": "0.1.0",
+  "description": "nytimes Test Application",
+  "keywords": [
+    "nytimes",
+    "Node.js"
+  ],
+  
+  "author": {
+    "name": "Bogdan Kyrychenko",
+    "email": "bogdan50e@gmail.com",
+    "url": "https://github.com/bodyaka"
+  },
+  
+  "homepage": "http://127.0.0.1:8080/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bodyaka/nytimes"
+  },
+
+  "engines": {
+    "node": ">= 0.10.26",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "4.12.4",
+    "ejs": "2.3.1",
+    "nconf": "0.7.1"
+  },
+
+  "private": true,
+  "main": "app.js"
+}
