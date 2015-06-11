@@ -1,16 +1,21 @@
 define([
 	"dojo/_base/declare",
+	"dojo/on",
 	"dijit/_WidgetBase",
 	"dijit/_TemplatedMixin",
-	"dojo/text!./templates/newsThumb.html"
-], function(declare, WidgetBase, TemplatedMixin, template){
+	"dojo/text!./templates/newsThumb.html",
+	
+	"engine/widgets/newsView"
+], function(declare, on, WidgetBase, TemplatedMixin, template, WidgetNewsView){
 	return declare([WidgetBase, TemplatedMixin], {
 		
 		templateString: template,
 		
-		multimedia: null,
-		_setMultimediaAttr: function(multimedia){
-			if(!Array.isArray(multimedia)) return;
+		/**
+		 * Set multimedia
+		 */
+		_setMultimedia: function(multimedia){
+			
 			var imgSrc = '';
 			for(var i in multimedia){
 				if(!(multimedia[i].type == 'image' && multimedia[i].subtype == 'xlarge')) continue;
@@ -27,21 +32,32 @@ define([
 			
 		},
 		
-		headline: null,
-		_setHeadlineAttr: function(headline){
-			if(!headline.main) return;
-			
-			var str = headline.main;
-			if(str.length > 40) {
-				str = str.substr(0, 40);
-				str += '...';
+		/**
+		 * Set title
+		 */
+		_setHeadline: function(headline){
+			if(headline.length > 40) {
+				headline = headline.substr(0, 40);
+				headline += '...';
 			}
 			
-			this.nodeTitle.innerHTML = str;
+			this.nodeTitle.innerHTML = headline;
+		},
+		
+		/**
+		 * News entity 
+		 */
+		entity: null,
+		_setEntityAttr: function(entity){
+			if(entity.headline.main) this._setHeadline(entity.headline.main);
+			if(Array.isArray(entity.multimedia)) this._setMultimedia(entity.multimedia);
 		},
 		
 		postCreate: function(){
-			
+			var scope = this;
+			this.own(on(this.domNode, 'click', function(){
+				new WidgetNewsView(scope.entity).placeAt(Engine.containerContent);
+			}));
 		}
 	});
 });

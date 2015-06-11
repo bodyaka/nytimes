@@ -1,0 +1,51 @@
+.newsView {
+	color: #424242;
+	position: absolute;
+	z-index: 999;
+	background-color: #FFFFFF;
+}
+
+.newsView .header {
+	width: 100%;
+	height: 60px;
+	background-color: #2F85BF;
+}
+.newsView .header .closeButton {
+	width: 20px;
+	height: 20px;
+	margin: 20px;
+	float: right;
+	background-image: url(../images/close.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+
+.newsView .body {
+	padding: 20px;
+}
+
+.newsView .title {
+	font-size: 24px;
+	margin: 30px;
+}
+
+.newsView .multimedia img {
+	max-width: 281px;
+	max-height: 282px;
+	float: left;
+	margin: 0 20px 20px 0;
+}
+
+.newsView .content {
+	font-size: 16px;
+}
+.newsView .content > div {
+	display: none;
+	margin-bottom: 10px;
+}
+.newsView .content .label {
+	font-size: 70%;
+	opacity: 0.6;
+}
+
