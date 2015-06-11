@@ -5,6 +5,7 @@
 	word-wrap: break-word;
 	display: inline-block;
 	vertical-align: top;
+	cursor: pointer;
 }
 .newsThumb .thumb {
 	text-align: center;
