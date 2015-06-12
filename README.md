@@ -8,8 +8,8 @@ NYTynes API is proxied by NodeJS. (In first variant of project was used JSONP fo
 
 1. git clone git@github.com:bodyaka/nytimes.git
 2. Configure project in config/config.json
-  * ip - run node package at IP
-  * port - run node package at PORT
+  * ip - run NodeJS package at IP
+  * port - run NodeJS package at PORT
   * environment - project environment. Can be "dev"|"prod"
   * devDojoSource - used only if environment=="dev". Relative path to source of Dojo Toolkit 
 2. npm install
