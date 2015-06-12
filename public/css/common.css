@@ -13,7 +13,12 @@ a {
 	text-decoration: none;
 }
 
-header,
+header .block.logo {
+	margin-left: 15px;
+}
+header .block#mobileButtonMenu {
+	margin-right: 15px;
+}
 footer {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -24,6 +29,9 @@ header {
 	height: 50px;
 	line-height: 50px;
 }
+header > div {
+	z-index: 1000;
+}
 
 header a {
 	color: #FFFFFF;
@@ -33,25 +41,13 @@ header .block {
 	display: inline-block;
 	vertical-align: top;
 }
-header .block.wildScreen {
+header #nodeSearch,
+header #nodeMenu {
 	display: none;
 }
-header .block.mobile {
+header #mobileButtonSearch,
+header #mobileButtonMenu {
 	float: right;
-}
-header .mobileIcon {
-	width: 20px;
-	height: 20px;
-	margin: 15px 0 15px 15px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	cursor: pointer;
-}
-header .mobileIcon#mobileSearch {
-	background-image: url(../images/search_mobile.png);
-}
-header .mobileIcon#mobileMenuButton {
-	background-image: url(../images/burger_menu.png);
 }
 
 header .logo {
@@ -60,6 +56,24 @@ header .logo {
 	background-image: url(../images/logo.png);
 	background-repeat: no-repeat;
 	background-position: center left;
+}
+
+header .mobileIcon {
+	width: 20px;
+	height: 20px;
+	margin: 15px 0 15px 15px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+header .mobileIcon#mobileButtonSearch {
+	background-image: url(../images/search_mobile.png);
+}
+header .mobileIcon#mobileButtonMenu {
+	background-image: url(../images/burger_menu.png);
+}
+header .mobileIcon#mobileButtonMenu.clicked {
+	background-image: url(../images/close.png);
 }
 
 header .form input[name="search_query"] {
@@ -78,8 +92,36 @@ header .form input[type="submit"] {
 	background-position: center center;
 }
 
+header.mobileSearchMode {
+	height: 100px;
+}
+header.mobileSearchMode #nodeSearch.active {
+	display: block;
+	text-align: center;
+	background-color: #2D85BF;
+	height: 50px;
+	line-height: 50px;
+}
+header.mobileSearchMode .form input[name="search_query"] {
+	width: 90%;
+}
+header #nodeMenu.active {
+	display: block;
+	background-color: #2F85BF;
+	position: fixed;
+	top: 50px;
+	right: 0px;
+	width: 150px;
+	height: 100%;
+	
+}
+
 header .menu {
 	font-size: 14px;
+}
+header .menu .menuItem {
+	text-align: right;
+	display: block;
 }
 header .menu a {
 	margin: 5px;
@@ -163,16 +205,25 @@ footer .block .content .instagram {
 
 /* responsive design */
 @media (min-width: 768px) {
-	header .block,
-	header .block.wildScreen {
+	header .menu .menuItem {
 		display: inline-block;
-		vertical-align: top;
 	}
-	header .block.mobile {
+	header #nodeSearch,
+	header #nodeMenu {
+		display: inline-block;
+	}
+	header #mobileButtonMenu,
+	header #mobileButtonSearch {
 		display: none;
 	}
 	
 	/*  justify header and footer  */
+	header .block.logo {
+		margin-left: 0px;
+	}
+	header .block#mobileButtonMenu {
+		margin-right: 0px;
+	}
 	header,
 	footer {
 		text-align: justify;

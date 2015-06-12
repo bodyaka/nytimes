@@ -11,3 +11,6 @@ Install:
 	devDojoSource - used only if environment=="dev". Relative path to source of Dojo Toolkit 
 2. npm install
 3. nodejs app.js
+
+Build JS if needed:
+public/js/profile/build.sh

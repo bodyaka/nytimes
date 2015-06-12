@@ -1,41 +1,103 @@
 require([
 	"dojo/_base/event",
-	"dojo/_base/window",
 	"dojo/request/xhr",
 	"dojo/request/script",
 	"dojo/io-query",
 	"dojo/ready",
 	"dojo/on",
 	"dojo/dom",
+	"dojo/dom-style",
+	"dojo/dom-class",
 	"dojo/dom-construct",
+	"dojo/dom-geometry",
 	
 	"dijit/registry",
 	
 	"engine/widgets/newsThumb"
-], function(event, win, xhr, script, ioQuery, ready, on, dom, domConstruct, registry, WidgetNewsThumb){
+], function(event, xhr, script, ioQuery, ready, on, dom, domStyle, domClass, domConstruct, domGeometry, registry, WidgetNewsThumb){
+	
+	// class names for handlers
+	var classNameMobileClicked = 'clicked',
+		classNameMobileSearchMode = 'mobileSearchMode',
+		classNameMobileActive = 'active';
 	
 	/**
 	 * Main project object in global scope
 	 */
 	dojo.global.Engine = {
-		
+			
 		/**
 		 * Container with main content
 		 */	
 		containerContent: null,
 		
 		/**
+		 * Header nodes
+		 */
+		searchInput: null,
+		nodeHeader: null,
+		nodeSearch: null,
+		nodeMenu: null,
+		mobileButtonSearch: null,
+		mobileButtonMenu: null,
+		
+		/**
+		 * Clear header in mobile mode
+		 */
+		closeMobileSearch: function(){
+			domClass.remove(Engine.mobileButtonSearch, classNameMobileClicked);
+			domClass.remove(Engine.nodeHeader, classNameMobileSearchMode);
+			domClass.remove(Engine.nodeSearch, classNameMobileActive);
+		},
+		closeMobileMenu: function(){
+			domClass.remove(Engine.mobileButtonMenu, classNameMobileClicked);
+			domClass.remove(Engine.nodeMenu, classNameMobileActive);
+			Engine.underlay.hide();
+		},
+		clearMobileHeader: function(){
+			Engine.closeMobileSearch();
+			Engine.closeMobileMenu();
+		},
+		
+		/**
 		 * Project init
 		 */
 		init: function(){
 			Engine.containerContent = dom.byId('containerMain');
-			var searchInput = dom.byId('inputSearchQuery');
+			Engine.searchInput = dom.byId('inputSearchQuery');
+			Engine.nodeHeader = dom.byId('nodeHeader');
+			Engine.nodeSearch = dom.byId('nodeSearch');
+			Engine.nodeMenu = dom.byId('nodeMenu');
+			Engine.mobileButtonSearch = dom.byId('mobileButtonSearch');
+			Engine.mobileButtonMenu = dom.byId('mobileButtonMenu');
+			
+			// handle buttons in Mobile screen mode
+			on(Engine.mobileButtonSearch, 'click', function(evt){
+				domClass.toggle(Engine.mobileButtonSearch, classNameMobileClicked);
+				if(domClass.contains(Engine.mobileButtonSearch, classNameMobileClicked)){
+					Engine.closeMobileMenu();
+					domClass.add(Engine.nodeHeader, classNameMobileSearchMode);
+					domClass.add(Engine.nodeSearch, classNameMobileActive);
+				}else{
+					Engine.clearMobileHeader();
+				}
+			});
+			on(Engine.mobileButtonMenu, 'click', function(evt){
+				domClass.toggle(Engine.mobileButtonMenu, classNameMobileClicked);
+				if(domClass.contains(Engine.mobileButtonMenu, classNameMobileClicked)){
+					Engine.closeMobileSearch();
+					domClass.add(Engine.nodeMenu, classNameMobileActive);
+					Engine.underlay.show();
+				}else{
+					Engine.clearMobileHeader();
+				}
+			});
 			
 			on(dom.byId('formSearchNews'), 'submit', function(evt){
 				event.stop(evt);
 				
 				
-				var searchQuery = searchInput.value;
+				var searchQuery = Engine.searchInput.value;
 				if(!searchQuery) return;
 				
 				var queryObjectV2 = {
@@ -87,6 +149,8 @@ require([
 		renderNews: function(data){
 			if(!(data && data.response && data.response.docs)) return;
 			
+			Engine.clearMobileHeader();
+			
 			// clear main container
 			registry.findWidgets(Engine.containerContent).forEach(function(widget){
 				widget.destroyRecursive();
@@ -103,6 +167,16 @@ require([
 		 */
 		underlay: function(){
 			var underlayWrapper;
+			var resizeWrapper = function(){
+				var posContainer = domGeometry.position(Engine.containerContent, true);
+				var posFooterNode = domGeometry.position('nodeFooter', true);
+				
+				domStyle.set(underlayWrapper, {
+					top: posContainer.y + 'px',
+					height: (posFooterNode.y + posFooterNode.h - posContainer.y) + 'px'
+					
+				});
+			}
 			
 			return {
 				show: function(){
@@ -110,15 +184,15 @@ require([
 					
 					underlayWrapper = domConstruct.create('div', {
 						style: {
-							position: 'fixed',
+							position: 'absolute',
 							left: '0',
-							top: '0',
 							width: '100%',
-							height: '100%',
 							zIndex: 998,
 							background: 'transparent'
 						}
-					}, win.body());
+					});
+					resizeWrapper();
+					domConstruct.place(underlayWrapper, Engine.containerContent);
 					var underlay = domConstruct.create('div', {
 						style: {
 							width: '100%',
