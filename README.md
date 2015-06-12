@@ -2,7 +2,7 @@
 
 Project is based at NodeJS server
 
-Install:
+##Install:
 
 1. git clone git@github.com:bodyaka/nytimes.git
 2. Configure project in config/config.json
