@@ -33,6 +33,26 @@ header .block {
 	display: inline-block;
 	vertical-align: top;
 }
+header .block.wildScreen {
+	display: none;
+}
+header .block.mobile {
+	float: right;
+}
+header .mobileIcon {
+	width: 20px;
+	height: 20px;
+	margin: 15px 0 15px 15px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+header .mobileIcon#mobileSearch {
+	background-image: url(../images/search_mobile.png);
+}
+header .mobileIcon#mobileMenuButton {
+	background-image: url(../images/burger_menu.png);
+}
 
 header .logo {
 	padding-left: 38px;
@@ -143,6 +163,14 @@ footer .block .content .instagram {
 
 /* responsive design */
 @media (min-width: 768px) {
+	header .block,
+	header .block.wildScreen {
+		display: inline-block;
+		vertical-align: top;
+	}
+	header .block.mobile {
+		display: none;
+	}
 	
 	/*  justify header and footer  */
 	header,
