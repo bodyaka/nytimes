@@ -12,18 +12,18 @@
 				isDebug: true,
 				baseUrl: '/',
 				packages: [
-					{ name: 'dojo', location: 'public/js/dojo-src/dojo' },
-					{ name: 'dijit', location: 'public/js/dojo-src/dijit' },
-					{ name: 'engine', location: 'public/js/engine-src' }
+					{ name: 'dojo', location: '<%=srcDojo%>/dojo' },
+					{ name: 'dijit', location: '<%=srcDojo%>/dijit' },
+					{ name: 'engine', location: '<%=srcEngine%>' }
 				],
 
 				/* custom configs */
 				apiUrlPath: '/api'
 			};
 		</script>
-		<script type="text/javascript" src="public/js/dojo-src/dojo/dojo.js"></script>
+		<script type="text/javascript" src="<%=srcDojo%>/dojo/dojo.js"></script>
 		
-		<script type="text/javascript" src="public/js/engine-src/engine.js"></script>
+		<script type="text/javascript" src="<%=srcEngine%>/engine.js"></script>
 	</head>
 	<body>
 		<div id="wrapperTopPage">

@@ -3,3 +3,10 @@
 
 /node_modules
 /public/js/dojo-src
+
+# --- dojo.js, dojo resources
+/public/js/release/dojo/*
+!/public/js/release/dojo/dojo.js
+!/public/js/release/dojo/dojo.js.uncompressed.js
+
+/public/js/release/dijit/*
