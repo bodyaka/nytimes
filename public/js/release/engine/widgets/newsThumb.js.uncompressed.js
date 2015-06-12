@@ -58,6 +58,7 @@ define("engine/widgets/newsThumb", [
 		postCreate: function(){
 			var scope = this;
 			this.own(on(this.domNode, 'click', function(){
+				Engine.clearMobileHeader();
 				new WidgetNewsView(scope.entity).placeAt(Engine.containerContent);
 			}));
 		}
