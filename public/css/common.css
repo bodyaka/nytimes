@@ -13,6 +13,11 @@ a {
 	text-decoration: none;
 }
 
+header,
+footer {
+	padding: 0 15px;
+}
+
 header {
 	background-color: #4198D2;
 	height: 50px;
@@ -36,8 +41,8 @@ header .logo {
 	background-position: center left;
 }
 
-header .form input[name="title"] {
-	width: 300px;
+header .form input[name="search_query"] {
+	width: 150px;
 	color: #B8B8B8;
 	padding: 5px;
 }
@@ -61,22 +66,23 @@ header .menu a {
 
 
 footer {
-	height: 160px;
-	padding-top: 30px;
 	background-color: #424242;
 }
 
 footer .block {
 	width: 220px;
-	display: inline-block;
-	vertical-align: top;
+	margin-top: 25px;
+}
+footer .block.activity {
+	text-align: left;
+	width: 270px;
 }
 footer .block .title {
 	font-size: 14px;
 	color: #878787;	
 }
 footer .block .content {
-	font-size: 11px;
+	font-size: 18px;
 	color: #A7A7A7;	
 	margin-top: 20px;
 }
@@ -100,81 +106,138 @@ footer .block .content li.location {
 	background-position: center left;
 }
 footer .block .content .social {
-	width: 70px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	display: inline-block;
 	vertical-align: top;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: left center;
 	cursor: pointer;
 }
 footer .block .content .twitter {
-	background-image: url(../images/Twitter.png);
-}
-footer .block .content .twitter:hover {
 	background-image: url(../images/Twitter_Color.png);
 }
 footer .block .content .pinterest {
-	background-image: url(../images/Pinterest.png);
-}
-footer .block .content .pinterest:hover {
 	background-image: url(../images/Pinterest_Color.png);
 }
 footer .block .content .youtube {
-	background-image: url(../images/YouTube.png);
-}
-footer .block .content .youtube:hover {
 	background-image: url(../images/YouTube_Color.png);
 }
 footer .block .content .facebook {
-	background-image: url(../images/Facebook.png);
-}
-footer .block .content .facebook:hover {
 	background-image: url(../images/Facebook_Color.png);
 }
 footer .block .content .google {
-	background-image: url("../images/Google +.png");
-}
-footer .block .content .google:hover {
 	background-image: url("../images/Google +_Color.png");
 }
 footer .block .content .instagram {
-	background-image: url(../images/Instagram.png);
-}
-footer .block .content .instagram:hover {
 	background-image: url(../images/Instagram_Color.png);
 }
 
-/*  justify header and footer  */
-header,
-footer,
-.containerMain {
-	text-align: justify;
-	padding-left: 30px;
-	padding-right: 20px;
-}
-header:before,
-footer:before,
-.containerMain {
-    content: '';
-    display: block;
-    width: 100%;
-}
-header:after,
-footer:after,
-.containerMain {
-    content: '';
-    display: inline-block;
-    width: 100%;
+
+
+#containerMain {
+	padding-left: 15px;
 }
 
-/* glue footer to bottom of page*/
-#wrapperTopPage {
-	min-height: 100%;
+/* responsive design */
+@media (min-width: 768px) {
+	
+	/*  justify header and footer  */
+	header,
+	footer {
+		text-align: justify;
+		padding: 0 30px;
+	}
+	header:before,
+	footer:before {
+	    content: '';
+	    display: block;
+	    width: 100%;
+	}
+	header:after,
+	footer:after {
+	    content: '';
+	    display: inline-block;
+	    width: 100%;
+	}
+	
+	
+	header .form input[name="search_query"] {
+		width: 250px;
+	}
+	
+	footer {
+		height: 200px;
+	}
+	footer .block {
+		width: 150px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	footer .block.activity {
+		width: 220px;
+	}	
+	footer .block .content {
+		font-size: 11px;
+	}
+	footer .block .content .social {
+		width: 70px;
+		height: 50px;
+	}
+	footer .block .content .twitter {
+		background-image: url(../images/Twitter.png);
+	}
+	footer .block .content .twitter:hover {
+		background-image: url(../images/Twitter_Color.png);
+	}
+	footer .block .content .pinterest {
+		background-image: url(../images/Pinterest.png);
+	}
+	footer .block .content .pinterest:hover {
+		background-image: url(../images/Pinterest_Color.png);
+	}
+	footer .block .content .youtube {
+		background-image: url(../images/YouTube.png);
+	}
+	footer .block .content .youtube:hover {
+		background-image: url(../images/YouTube_Color.png);
+	}
+	footer .block .content .facebook {
+		background-image: url(../images/Facebook.png);
+	}
+	footer .block .content .facebook:hover {
+		background-image: url(../images/Facebook_Color.png);
+	}
+	footer .block .content .google {
+		background-image: url("../images/Google +.png");
+	}
+	footer .block .content .google:hover {
+		background-image: url("../images/Google +_Color.png");
+	}
+	footer .block .content .instagram {
+		background-image: url(../images/Instagram.png);
+	}
+	footer .block .content .instagram:hover {
+		background-image: url(../images/Instagram_Color.png);
+	}
+
+	/* glue footer to bottom of page*/
+	#wrapperTopPage {
+		min-height: 100%;
+	}
+	#footerBlank {
+		min-height: 200px;
+	}
+	footer {
+		margin-top: -200px;
+	}
 }
-#footerBlank {
-	min-height: 190px;
-}
-footer {
-	margin-top: -190px;
+
+@media (min-width: 1024px) {
+	header .form input[name="search_query"] {
+		width: 300px;
+	}
+	footer .block {
+		width: 250px;
+	}
 }

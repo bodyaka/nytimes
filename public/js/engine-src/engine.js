@@ -29,7 +29,7 @@ require([
 		 */
 		init: function(){
 			Engine.containerContent = dom.byId('containerMain');
-			var searchInput = dom.byId('inputSearchTitle');
+			var searchInput = dom.byId('inputSearchQuery');
 			
 			on(dom.byId('formSearchNews'), 'submit', function(evt){
 				event.stop(evt);
