@@ -16,4 +16,6 @@ NYTynes API is proxied by NodeJS. (In first variant of project was used JSONP fo
 3. nodejs app.js
 
 # Build JS if needed:
-public/js/profile/build.sh
+
+1. unpack [Dojo Toolkit SDK](http://download.dojotoolkit.org/release-1.10.4/dojo-release-1.10.4-src.tar.gz) to public/js/dojo-src (by default)
+2. run script ./public/js/profile/build.sh
