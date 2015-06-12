@@ -15,7 +15,8 @@ a {
 
 header,
 footer {
-	padding: 0 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 header {
@@ -67,11 +68,12 @@ header .menu a {
 
 footer {
 	background-color: #424242;
+	padding-top: 25px;
 }
 
 footer .block {
 	width: 220px;
-	margin-top: 25px;
+	padding-bottom: 25px;
 }
 footer .block.activity {
 	text-align: left;
@@ -146,7 +148,8 @@ footer .block .content .instagram {
 	header,
 	footer {
 		text-align: justify;
-		padding: 0 30px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 	header:before,
 	footer:before {
@@ -161,15 +164,15 @@ footer .block .content .instagram {
 	    width: 100%;
 	}
 	
-	
 	header .form input[name="search_query"] {
 		width: 250px;
 	}
 	
 	footer {
-		height: 200px;
+		height: 180px;
 	}
 	footer .block {
+		padding-bottom: 0;
 		width: 150px;
 		display: inline-block;
 		vertical-align: top;
@@ -226,10 +229,10 @@ footer .block .content .instagram {
 		min-height: 100%;
 	}
 	#footerBlank {
-		min-height: 200px;
+		min-height: 205px;
 	}
 	footer {
-		margin-top: -200px;
+		margin-top: -205px;
 	}
 }
 
